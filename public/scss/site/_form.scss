@@ -1,0 +1,75 @@
+@mixin font() {
+    font-size:14;
+}
+
+@mixin flex() {
+    align-items: center;
+    justify-content: center;
+}
+
+$border-radius:3px;
+
+
+.container--div {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    @include flex();
+
+}
+
+.container--form {
+   background-color:#FFF;
+    border-radius:$border-radius;
+    box-shadow: 0px 0px 0px #999;
+    width: 500px;
+
+
+    .container--area {
+        padding: 10px;
+
+        .container--title {
+            text-align: center;
+            padding-right: 20px;
+            font-weight: bold;
+            @include font();
+        }
+
+        .container--input {
+            flex: 1;
+
+            input, select {
+                width: 100%;
+                @include font();
+                padding: 5px;
+                border: 1px solid #DDD;
+                border-radius:$border-radius;
+                outline: 0;
+                transition: all ease .4s;
+
+
+                &:focus {
+                    border: 1px solid #333;
+                    color: #333;
+                }
+            }
+
+            .container--button {
+                flex:1;
+                @include flex();
+                background-color: #0089FF;
+                border: 0;
+                outline: 0;
+                padding: 5px 10px;
+                border-radius:$border-radius;
+                color: #FFF;
+                @include font();
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #006FCE;
+                }
+            }
+        }
+    }
+}
