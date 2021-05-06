@@ -23,10 +23,11 @@ class AllTables extends Migration
 
         Schema::create('registers', function(Blueprint $table){
             $table->id();
-            $table->integer('age');
+            $table->string('age');
             $table->string('name');
             $table->string('email', 40)->nullable();
             $table->string('phone', 11)->nullable();
+            $table->string('birthdate', 50);
             $table->string('gender', 10)->nullable();
             $table->char('check_frequent', 1)->nullable();
             $table->char('check_companion', 1)->nullable();
@@ -48,16 +49,6 @@ class AllTables extends Migration
             $table->softDeletes('deleted_at');
 
             $table->foreign('id_register')->references('id')->on('registers');
-        });
-
-        Schema::create('registers', function(Blueprint $table){
-            $table->id();
-            $table->string('name');
-            $table->string('leader', 100)->nullable();
-            $table->string('phone', 11)->nullable();
-            $table->integer('quantidade')->nullable();
-            $table->timestamps();
-            $table->softDeletes('deleted_at');
         });
     }
 

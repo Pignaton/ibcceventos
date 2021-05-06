@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 
+
+Route::get('/cadastro', "RegisterController@index")->name('cadastro');
+Route::post('register', "RegisterController@register");
 
 Route::prefix('/painel')->group(function(){
     Route::get('/login', "UserController@index")->name('login');

@@ -19,7 +19,7 @@ class PainelController extends Controller
     public function index()
     {
 
-        return view('painel/home/index');
+        return view('/painel/home/index');
     }
 
     public function register()

@@ -18,10 +18,10 @@ class UserController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
 
-        $users = DB::select('select * from users where email = :email', ['email' => $email]);
+        $users = DB::select('select * from users where email = :email and password = :password', ['email' => $email, 'password' => md5($password)]);
 
         if ($users) {
-            return redirect()->to('/painel/home/index');
+            return redirect()->to('/painel/home');
            
         } else {
             return redirect()->back()->withErrors('E-mail e/ou senha incorreto!');

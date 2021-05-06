@@ -58,7 +58,7 @@
                 <div class="container--area">
                     <div class="container--title">Senha</div>
                     <div class="container--input">
-                        <input type="text" placeholder="Senha" name="password" id="password" required />
+                        <input type="password" placeholder="Senha" name="password" id="password" required />
                     </div>
                 </div>
                 <div class="container--area">

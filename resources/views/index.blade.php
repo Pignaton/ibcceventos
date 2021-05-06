@@ -36,42 +36,54 @@
             </div>
         </div>
         <div class="container--div">
-            <form method="POST" action="" class="container--form">
+            <form method="POST" class="container--form" action="/register">
                 @csrf
+                @if($errors->any())
+                <div class="card mb-4 py-3 border-left-danger">
+                    <div class="card-body">
+                        <ul>
+                            <h4>Ocorreu um erro!</h4>
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                @endif
                 <div class="container--area">
                     <div class="container--title">Nome</div>
                     <div class="container--input">
-                        <input type="text" placeholder="Nome" name="name" id="name"  />
+                        <input type="text" placeholder="Nome" name="name" id="name" value="{{old('name')}}"  />
                     </div>
                 </div>
                 <div class="container--area">
                     <div class="container--title">E-mail</div>
                     <div class="container--input">
-                        <input type="email" placeholder="E-mail" name="email" id="email"  />
+                        <input type="email" placeholder="E-mail" name="email" id="email" value="{{old('email')}}"  />
                     </div>
                 </div>
                 <div class="container--area">
                     <div class="container--title">Idade</div>
                     <div class="container--input">
-                        <input type="email" placeholder="E-mail" name="age" id="age" />
+                        <input type="number" placeholder="Idade" name="age" id="age" value="{{old('age')}}" />
                     </div>
                 </div>
                 <div class="container--area">
                     <div class="container--title">Data de Nascimento</div>
                     <div class="container--input">
-                        <input type="text" placeholder="" name="birthdate" id="birthdate" />
+                        <input type="text" placeholder="Mês/Dia/Ano" name="birthdate" id="birthdate" value="{{old('birthdate')}}"  />
                     </div>
                 </div>
                 <div class="container--area">
                     <div class="container--title">telefone</div>
                     <div class="container--input">
-                        <input type="text" name="phone" id="phone" />
+                        <input type="text" name="phone" id="phone" value="{{old('phone')}}" />
                     </div>
                 </div>
                 <div class="container--area">
                     <div class="container--title">Sexo</div>
                     <div class="container--input">
-                        <select>
+                        <select name="sex" id="sex">
                             <option value=""></option>
                             <option value="M">Masculino</option>
                             <option value="F">Feminino</option>
@@ -81,43 +93,43 @@
                 <div class="container--area">
                     <div class="container--title">Cep</div>
                     <div class="container--input">
-                        <input type="email" placeholder="cep" name="cep" id="cep" />
+                        <input type="email" placeholder="cep" name="cep" id="cep" value="{{old('cep')}}" />
                     </div>
                 </div>
                 <div class="container--area">
                     <div class="container--title">Rua</div>
                     <div class="container--input">
-                        <input type="email" placeholder="Rua" name="road" id="road" />
+                        <input type="email" placeholder="Rua" name="road" id="road" value="{{old('road')}}" />
                     </div>
                 </div>
                 <div class="container--area">
                     <div class="container--title">Cidade</div>
                     <div class="container--input">
-                        <input type="email" placeholder="Cidade" name="city" id="city" />
+                        <input type="email" placeholder="Cidade" name="city" id="city" value="{{old('city')}}" />
                     </div>
                 </div>
                 <div class="container--area">
                     <div class="container--title">Estado</div>
                     <div class="container--input">
-                        <input type="email" placeholder="Estado" name="state" id="state" />
+                        <input type="email" placeholder="Estado" name="state" id="state" value="{{old('state')}}" />
                     </div>
                 </div>
                 <div class="container--area">
                     <div class="container--title">Número</div>
-                    <div class="container--input" name="number" id="number">
+                    <div class="container--input" name="number" id="number" value="{{old('number')}}">
                         <input type="text" />
                     </div>
                 </div>
                 <div class="container--area">
                     <div class="container--title">Complemento</div>
-                    <div class="container--input" name="complement" id="complement">
+                    <div class="container--input" name="complement" id="complement" value="{{old('complement')}}">
                         <input type="text" />
                     </div>
                 </div>
                 <div class="container--area">
                     <div class="container--title"></div>
                     <div class="container--input">
-                        <button type="email" class="container--button" name="btnCadastrar">Cadastrar</button>
+                        <button type="submit" class="container--button" name="btnCadastrar">Cadastrar</button>
                     </div>
                 </div>
             </form>
